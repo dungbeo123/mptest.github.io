@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Công ty Trà Việt Anh</title>
+    <style>
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        .logo
+        {
+            max-width: 100px;
+            height: 100px;
+            display: block;
+        }
+        ul {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(8, 238, 0);
+            overflow: hidden;
+            list-style-type: none;
+        }
+        ol {
+            margin: 0;
+            padding: 0;
+            background-color: rgb(255, 255, 255);
+            overflow: hidden;
+            list-style-type: none;
+        }
+        li {
+            float: left;
+        }
+        li a {
+            font-family: 'Courier New', Courier, monospace;
+            padding: 14px 17px;
+            text-decoration: none;
+            color: black;
+            font-size: 25px;
+            display: inline-block;
+            color: none;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.8);
+        }
+        li a:hover {
+            background: rgba(255, 254, 254, 0.219);
+            color: #fefefe;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        li p {
+            font-family: 'Courier New', Courier, monospace;
+            padding: 14px 17px;
+            text-decoration: none;
+            color: black;
+            font-size: 20px;
+            display: inline-block;
+            color: none;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.922);
+        }
+        li p:hover {
+            color: #00ff37;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+        }
+        .submenu {
+            display: none;
+            min-height: 160px;
+            background-color: rgb(0, 255, 68);
+            z-index: 1;
+            position: absolute;
+        }
+        .parentmenu:hover .submenu {
+            display: block;
+        }
+        .submenu a {
+            font-family: 'Courier New', Courier, monospace;
+            display: block;
+        }
+        .search-icon
+        {
+            position: relative;
+      display: inline-block;
+  
+        }
+        .search-icon .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+    .home-icon
+        {
+            position: relative;
+            display: inline-block;
+            left: 700px;
+        }
+        .home-icon .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+        .icon-love {
+      position: relative;
+      display: inline-block;
+    }
+    .khodo {
+            display: none;
+            min-height: 160px;
+            background-color: rgb(0, 255, 68);
+            z-index: 1;
+            position: absolute;
+        }
+    .icon {
+        width: 45px; 
+        height: 45px; 
+        margin: 0 20px;
+    }
+    .icon-love .badge {
+      position: absolute;
+      top: -10px;
+      right: -10px;
+    }
+    .badge {
+        position: absolute; /* Định vị tuyệt đối con số */
+        top: -5px; /* Đẩy con số lên trên */
+        right: 0px; /* Đẩy con số sang phải */
+        background-color: green;
+        border-radius: 50%; /* Bo tròn góc của con số */
+        padding: 5px 10px; /* Kích thước của con số */
+        font-size: 15px; /* Kích thước chữ của con số */
+        color: white;
+        
+    }
+        .search-container {
+            display: flex;
+            align-items: center;
+            border-radius: 10px;
+            float: left;
+            width: 300px;
+        }
+        .search-container input[type="text"] {
+            border: 2px solid black;
+            outline: none;
+            padding: 8px;
+            border-radius: 0px;
+            width: 200px;
+        }
+        .search-container button[type="submit"] {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 0 10px 10px 0;
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .search-container button[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+        .video-wrapper {
+        position: relative;
+        width: 100%;
+        height: 0;
+        padding-bottom: 56.25%; /* Tỷ lệ khung video 16:9 */
+        margin: auto;
+        overflow: hidden;
+    }
+
+    .video-wrapper video {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .submenu2 {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+    padding: 50px;
+    margin: 0;
+    list-style: none;
+}
+
+.search-icon:hover .submenu2 {
+    display: block;
+}
+#scrollToTopBtn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    font-size: 24px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    display: none;
+  }
+  
+  #scrollToTopBtn.show {
+    display: block;
+  }
+  .popup-container {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+        }
+
+        .popup-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        }
+        .close-button {
+            background-color: #007bff; /* Màu nền của nút */
+            color: #fff; /* Màu chữ của nút */
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .close-button:hover {
+            background-color: #0056b3;}
+    </style>
+</head>
+<body>
+    <table>
+        <tr> 
+            <td height="100%" colspan="2" valign="top" align="left">
+                <div class="popup-container" id="popup">
+                    <div class="popup-content">
+                        <h2>Chào mừng bạn đến trang web của chúng tôi!</h2>
+                        <p>Xin chào và cảm ơn bạn đã ghé thăm trang web của chúng tôi.</p>
+                        <button class="close-button" onclick="closePopup()">Đóng</button>
+                    </div>
+                </div>
+                <img src="https://zogatea.com/wp-content/uploads/2021/11/5461479-1-2048x1557.webp"> 
+            </td> 
+        </tr>
+        <tr> 
+            <td height="30px" colspan="2" valign="top" align="left"> 
+                <ul> 
+                    <li> <a href="muaban.html">SẢN PHẨM ĐANG HOT</a></li> 
+                    <li class="parentmenu"> 
+                        <a href="#">BÀI VIẾT</a>
+                        <div class="submenu">
+                            <a href="trathaomoc.html">Trà thảo mộc là gì và tác dụng khi uống</a>
+                            <a href="uongtratheomua.html">Uống trà theo mùa</a>
+                            <a href="cachphatrangon.html">Cách pha trà ngon</a>
+                        </div>
+                    </li>
+                    <li> <a href="#">SẢN PHẨM</a></li> 
+                    <li> <a href="#">CHÍNH SÁCH ĐẠI LÝ</a></li> 
+                    <li> <a href="#">THÔNG TIN LIÊN HỆ</a></li> 
+                </ul> 
+            </td>
+        </tr>
+        <tr> 
+            <td height="50px" colspan="2" valign="Middle" align="left" bgcolor="#FFFFFF">
+                <div class="search-container">
+                    <a href="mp.html"><img src="/img/cropped-Untitled-2 (1).jpg" class="logo" ></a>
+                    <input type="text" placeholder="Search...">
+                    <button type="submit">Search</button>
+                    
+                </div>
+            </td>   
+            <td>
+                <tr>
+                        <td width="300" height="500px" valign="top" align="left" bgcolor="#fff">
+                            <img src="https://zogatea.com/wp-content/uploads/2021/11/thao-moc-nut.webp">
+                            <img src="https://zogatea.com/wp-content/uploads/2021/11/hoa-hong-da-lat.webp">
+                            <img src="https://zogatea.com/wp-content/uploads/2021/11/tra-xanh.webp">
+                            <img src="https://zogatea.com/wp-content/uploads/2021/06/cropped-cropped-LOGO-ZOGA-420x420.png">
+                        </td> 
+                        <td width="1257" height="500px" valign="top" align="left" bgcolor="#767941">   
+                            <div class="video-wrapper">
+                                <video width="700" height="400" controls>
+                                <source src="https://youtu.be/pzB8Ti5-AN0" type="video/mp4">
+                                </video>
+                            </div>
+                        </td> 
+                    </tr>
+                    <td height="100px" colspan="2" valign="Middle" align="left" bgcolor="#33FF66">
+                        <center><b>CÔNG TY TNHH TRÀ VIỆT ANH Địa chỉ</b> : 96 LÀNG YÊN PHỤ – TÂY HỒ – HÀ NỘI
+                            ĐT: 024 6680 7335/
+                            MOBI: 0913511168 – FAX: 024 3715 4120
+                            E-mail: vietanhtea@gmail.com – Website: www. travietanh.vn – vietanhtea.com
+                            Fanpage: VIET ANH TEA – Tinh Hoa Trà Việt. 
+                            MOBI: 0985080024 – E-Mail: vietanhtea@gmail.com<br><B>Nhà Máy</B>: TRÀ VIỆT ANH THÁI NGUYÊN
+                            Địa chỉ:  Xóm Đồng Tiến, xã La Bằng, huyện Đại Từ, tỉnh Thái Nguyên</center>
+                    </td>  
+            </td>                                      
+        </tr> 
+    </table>
+    <button id="scrollToTopBtn" onclick="scrollToTop()">&uarr;</button>
+
+    <script>
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+        window.onscroll = function() {scrollFunction()};
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        }
+
+        function scrollToTop() {
+            document.body.scrollTop = 0; 
+            document.documentElement.scrollTop = 0; 
+        }
+        window.onload = function() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'block';
+        }
+
+        // Đóng bảng thông báo khi nhấp vào nút "Đóng"
+        function closePopup() {
+            var popup = document.getElementById('popup');
+            popup.style.display = 'none';
+        }
+    </script>
+</body>
+</html>
